@@ -16,7 +16,7 @@ pipeline {
     stage('Compile and Test project'){
       steps {
          sh 'pwd  && ls -al'
-         sh 'mvn clean compile install'
+         sh '/usr/bin/mvn clean compile install'
       }
 
     }
