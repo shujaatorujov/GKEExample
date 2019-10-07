@@ -15,13 +15,6 @@ pipeline {
     
     stage('Compile and Test project'){
       steps {
-        script {
-            docker.image('maven').inside {
-                          git 'https://github.com/takari/maven-wrapper.git'
-                          // begin the sh step with "env &&" for troubleshooting, no need in real life
-                          sh 'unset MAVEN_CONFIG && env && ./mvnw clean'
-                      }
-        }
          sh 'pwd  && ls -al'
          sh 'mvnw clean compile install'
       }
