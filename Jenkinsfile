@@ -15,7 +15,10 @@ pipeline {
     
     stage('Compile and Test project'){
       steps {
-        sh 'mvn -version'
+        container('mvn') {
+                  echo 'In container nodejs...'
+                  sh 'source /usr/local/bin/scl_enable && mvn --version'
+        }
         sh 'mvn clean compile install'
       }
     }
